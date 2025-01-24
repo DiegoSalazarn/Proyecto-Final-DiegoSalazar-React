@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import CartWidget from './CartWidget/CartWidget';
+import CartWidget from '../CartWidget/CartWidget'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

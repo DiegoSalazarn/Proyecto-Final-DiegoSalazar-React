@@ -7,7 +7,7 @@ import Navbar from './components/navbar/Navbar';
 import Catalog from './pages/Catalog'; 
 import ProductDetail from './pages/ProductDetail';
 import NotFound from './pages/NotFound';
-import ItemListContainer from './components/navbar/ItemListContainer/ItemListContainer';  
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'; 
 
 import './App.css';
 
