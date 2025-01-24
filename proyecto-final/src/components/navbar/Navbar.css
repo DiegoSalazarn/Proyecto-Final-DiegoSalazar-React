@@ -1,0 +1,113 @@
+.navbar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 10px 20px;
+  background-color: #ff4b4b;
+  color: white;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+  flex-grow: 0; 
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-links-container {
+  flex-grow: 1; 
+  display: flex;
+  justify-content: center; 
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 120px; 
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #ffdd57;
+}
+
+/* Estilo del carrito */
+.cart-widget {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-widget span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+  
+
+  .app-content {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+  }
+
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .navbar-links li {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    min-width: 150px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dropdown-menu li {
+    padding: 8px 16px;
+  }
+  
+  .dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-menu li a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .navbar-links li:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
