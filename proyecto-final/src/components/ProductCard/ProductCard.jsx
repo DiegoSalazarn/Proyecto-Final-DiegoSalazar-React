@@ -1,18 +1,28 @@
+import React from "react";
+import "./ProductCard.css";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+function ProductCard({ product }) {
   return (
-    <div className="col-md-4">
-      <div className="card">
-        <img src={product.image} className="card-img-top" alt={product.name} />
-        <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
-          <p className="card-text">${product.price}</p>
-          <Link to={`/product/${product.id}`} className="btn btn-primary">Ver más</Link>
+    <div className="card h-100 shadow">
+      <img
+        src={product.image || "/images/default-placeholder.png"}
+        className="card-img-top"
+        alt={product.name}
+        style={{ height: "200px", objectFit: "cover" }} // 👈 Todas las imágenes del mismo tamaño
+      />
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title">{product.name}</h5>
+        <p className="card-text">Precio: ${product.price}</p>
+        <div className="mt-auto">
+          <Link to={`/product/${product.id}`} className="btn btn-primary w-100">
+            Ver detalles
+          </Link>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default ProductCard;
+

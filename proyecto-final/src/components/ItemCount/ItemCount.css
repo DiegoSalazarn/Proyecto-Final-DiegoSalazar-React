@@ -1,0 +1,23 @@
+.item-count {
+    text-align: center;
+  }
+  
+  .count-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .quantity {
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+  }
+  
+  .btn {
+    min-width: 40px;
+  }
+  
