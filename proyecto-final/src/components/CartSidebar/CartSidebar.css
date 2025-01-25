@@ -77,5 +77,29 @@
     padding: 5px;
   }
   
+  .checkout-form {
+    margin-top: 20px;
+  }
+  
+  .checkout-form h3,
+  .checkout-form h4 {  /* 👈 Aplicamos color negro */
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .checkout-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .checkout-form button {
+    margin-top: 10px;
+  }
+  
+  
   
   
