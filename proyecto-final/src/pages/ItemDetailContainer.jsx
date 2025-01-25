@@ -1,12 +1,11 @@
-import React, { useContext, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import { ProductsContext } from "../context/ProductsContext";
 import { CartContext } from "../context/CartContext";
+import ItemCount from "../components/ItemCount/ItemCount";
 
-const ProductDetail = () => {
+const ItemDetailContainer = () => {
   const { productId } = useParams();
-  const navigate = useNavigate();
   const { products } = useContext(ProductsContext);
   const { addToCart } = useContext(CartContext);
   const product = products.find((p) => p.id === productId);
@@ -16,18 +15,9 @@ const ProductDetail = () => {
     return <p>Producto no encontrado</p>;
   }
 
-  const handleAddToCart = () => {
-    addToCart(product, 1);
-    setAddedToCart(true);
-
-    Swal.fire({
-      title: "Producto agregado 🛒",
-      text: `Has añadido "${product.name}" al carrito.`,
-      icon: "success",
-      confirmButtonColor: "#28a745",
-      confirmButtonText: "OK",
-      timer: 2000,
-    });
+  const handleAddToCart = (quantity) => {
+    addToCart(product, quantity);
+    setAddedToCart(true);  // Ocultar ItemCount después de agregar
   };
 
   return (
@@ -43,26 +33,15 @@ const ProductDetail = () => {
           <p>Stock disponible: {product.stock}</p>
 
           {!addedToCart ? (
-            <button className="btn btn-success w-100 mb-2" onClick={handleAddToCart}>
-              Agregar al carrito 🛒
-            </button>
+            <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} />
           ) : (
             <p className="text-success">Producto agregado al carrito </p>
           )}
-
-          <button className="btn btn-secondary w-100" onClick={() => navigate(`/category/${product.category}`)}>
-            ← Volver a {product.category}
-          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProductDetail;
-
-
-
-
-
+export default ItemDetailContainer;
 

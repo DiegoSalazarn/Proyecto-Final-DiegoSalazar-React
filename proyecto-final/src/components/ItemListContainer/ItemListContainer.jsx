@@ -12,30 +12,38 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     if (categoryId) {
       // Filtrar productos por categoría
-      const filtered = products.filter((product) => product.category === categoryId);
+      const filtered = products.filter(
+        (product) => product.category.toLowerCase() === categoryId.toLowerCase()
+      );
+      console.log(`📂 Productos filtrados para ${categoryId}:`, filtered);
       setFilteredProducts(filtered);
     }
   }, [categoryId, products]);
 
   return (
     <div className="container mt-4">
-      <h2>{greeting}</h2>
+      <h2 className="text-center">{greeting}</h2>
       {loading ? (
-        <p>Cargando productos...</p>
-      ) : filteredProducts.length > 0 ? (
-        <div className="row">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <p className="text-center">Cargando productos...</p>
       ) : (
-        <p>No hay productos en esta categoría.</p>
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <div key={product.id} className="col d-flex align-items-stretch">
+                <ProductCard product={product} />
+              </div>
+            ))
+          ) : (
+            <p className="text-center">No hay productos disponibles en esta categoría.</p>
+          )}
+        </div>
       )}
     </div>
   );
 };
 
 export default ItemListContainer;
+
 
 
 
